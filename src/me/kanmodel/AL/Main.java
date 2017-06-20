@@ -1,13 +1,22 @@
 package me.kanmodel.AL;
 
 import edu.princeton.cs.algs4.BinarySearch;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
+import me.kanmodel.AL.contents.First;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
+import static me.kanmodel.AL.assist.getRandomArray;
+
 public class Main {
 
+    /**
+     * 测试用
+     * @param args 输入
+     */
     public static void main(String[] args) {
         // write your code here
 //        System.out.println("验证p q最大公因数：");
@@ -19,16 +28,14 @@ public class Main {
 //            System.out.println(aa);
 //        Math.abs(3);
         StdOut.println(233);
-        int[] a = getRandomArray(10 ,false ,true);
-        System.out.println();
-        int[] b = getRandomArray(10 ,false ,true);
-        System.out.println();
-        for (int i = 0; i < 10; i++){
-            int key = a[i];
-            if (BinarySearch.rank(key, b) < 0){
-                StdOut.println(key);
-            }
-        }
+
+//        System.out.println(StdIn.isEmpty());
+//        System.out.println(2.0e2);
+//        System.out.println(2.0e-6 * 100000000.1);
+//        System.out.println((1 + 2.236) / 2);
+//        System.out.println((4.1 >= 4));
+//        System.out.println(1 + 2 + "3");
+        System.out.println(Integer.toBinaryString(10));
     }
 
     /**
@@ -42,61 +49,5 @@ public class Main {
         if (q == 0) return p;
         int r = p % q;
         return gcd(q ,r);
-    }
-
-    /**
-     *
-     * @param amount 数组元素个数
-     * @param showOriginalArray 是否输出数组
-     * @param showSortedArray 是否输出整理后的数组
-     * @param range 从1到range的范围生成数组
-     * @return 一维数组
-     */
-    public static int[] getRandomArray(int amount , boolean showOriginalArray , boolean showSortedArray ,int range){
-        int[] a = new int[amount];
-        for (int i = 0; i < amount; i++){
-            a[i] = (int) Math.round(Math.random() * range);
-        }
-        if (showOriginalArray) {
-            for (int ai:a) {
-                System.out.print(ai + " ");
-            }
-        }
-        System.out.println();
-        Arrays.sort(a);
-        if (showSortedArray){
-            for (int ai:a) {
-                System.out.print(ai + " ");
-            }
-        }
-        return a;
-    }
-
-    /**
-     *
-     * @param amount 数组元素个数
-     * @param showOriginalArray 是否输出数组
-     * @param showSortedArray 是否输出整理后的数组
-     * @return 一维数组
-     */
-    public static int[] getRandomArray(int amount,  boolean showOriginalArray , boolean showSortedArray){
-        return getRandomArray(amount, showOriginalArray, showSortedArray, 100);
-    }
-
-    /**
-     * 产生一个1-100指定个数的一维数组
-     * @param amount 一维数组的个数
-     * @return 一个随机一维数组
-     */
-    public static int[] getRandomArray(int amount){
-        return getRandomArray(amount, true, true);
-    }
-
-    /**
-     * 产生一个1-100指10个元素的一维数组
-     * @return
-     */
-    public static int[] getRandomArray(){
-        return getRandomArray(10);
     }
 }
