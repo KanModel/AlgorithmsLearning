@@ -23,16 +23,19 @@ public class assist {
             a[i] = (int) Math.ceil(Math.random() * range);//取整
         }
         if (showOriginalArray) {
+           /* System.out.println();
             for (int ai:a) {
                 System.out.print(ai + " ");
-            }
+            }*/
+           showArray(a);
         }
-        System.out.println();
         Arrays.sort(a);
         if (showSortedArray){
+            /*System.out.println();
             for (int ai:a) {
                 System.out.print(ai + " ");
-            }
+            }*/
+            showArray(a);
         }
         return a;
     }
@@ -63,5 +66,12 @@ public class assist {
      */
     public static int[] getRandomArray(){
         return getRandomArray(10);
+    }
+
+    public static void showArray(int[] a){
+        for (int i = 0; i < a.length; i++){
+            System.out.print(a[i] + " ");
+        }
+        System.out.println();
     }
 }
