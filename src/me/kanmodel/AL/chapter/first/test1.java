@@ -69,9 +69,10 @@ public class test1 {
         System.out.println(mystery(3, 11));
         //19
         Fibonacci.main(args);
-        //20 todo 非递归使用
-        System.out.println(lnN(3));
+        //20
+        System.out.println(lnN(1));
         //21
+//        makeTable();
         //anything else
         System.out.println(-.01);
 //        stdDrawTest1();
@@ -88,13 +89,33 @@ public class test1 {
         new Thread( () -> System.out.println("In Java8, Lambda expression rocks !!") ).start();
     }
 
+    public static void makeTable(){
+        System.out.println("请按行输入1个名字及2个整数");
+        String[][] resa = new String[100][3];
+        int cnt = 0;
+        while (!StdIn.isEmpty()){
+            resa[cnt / 3][cnt % 3] = StdIn.readString();
+            cnt++;
+        }
+        for (int i = 0; i < cnt / 3; i++){
+            StdOut.printf("| Name: %8s | Grade: %10.3f -- %10.3f |\n", resa[i][0], Double.parseDouble(resa[i][1]), Double.parseDouble(resa[i][2]));
+        }
+    }
+
     public static double lnN(int n){
-        int result = 1;
+/*        int result = 1;
         for (int i = 1; i < n+1; i++){
             result *= i;
         }
-        System.out.println(result);
-        return Math.log(result);
+        System.out.println(result);*/
+        int res = factorial(n);
+        System.out.println("ln(n!) = :" + Math.log(res));
+        return Math.log(res);
+    }
+
+    public static int factorial(int N){
+        if (N == 1) return 1;
+        return N * factorial(N - 1);
     }
 
     public static int mystery(int a, int b){
@@ -343,20 +364,33 @@ class Fibonacci{
 
 class casualTest{
     public static void main(String args[]){
-        String s = doAdd("723453243455535634535252345234677576252241234123523453664563634", "623453243455535634535252345234677576252241234123523453664563634");
-        System.out.println(s);
-        System.out.println(25 / 2);
-        System.out.println(3 / 2);
-        System.out.println(1 / 2);
+//        String s = doAdd("723453243455535634535252345234677576252241234123523453664563634", "623453243455535634535252345234677576252241234123523453664563634");
+//        System.out.println(s);
+//        System.out.println(25 / 2);
+//        System.out.println(3 / 2);
+//        System.out.println(1 / 2);
 
-        double sum = 0;
-        int cnt = 0;
-        while (!StdIn.isEmpty()){
-            sum += StdIn.readDouble();
-            cnt++;
-        }
-        double avg = sum / cnt;
-        StdOut.printf("平均值： %.5f\n", avg);
+//        double sum = 0;
+//        int cnt = 0;
+//        while (!StdIn.isEmpty()){
+//            sum += StdIn.readDouble();
+//            cnt++;
+//        }
+//        double avg = sum / cnt;
+//        StdOut.printf("平均值： %.5f\n", avg);
+//        System.out.println("请按行输入1个名字及2个整数");
+//        String[][] resa = new String[100][3];
+//        int cnt = 0;
+//        while (!StdIn.isEmpty()){
+//            resa[cnt / 3][cnt % 3] = StdIn.readString();
+//            cnt++;
+//        }
+//        for (int i = 0; i < cnt / 3; i++){
+//            StdOut.printf("| Name: %8s | Grade: %5.3f -- %5.3f |\n", resa[i][0], Double.parseDouble(resa[i][1]), Double.parseDouble(resa[i][2]));
+//        }
+        StdOut.printf("| %10s , %10.3f |\n", "fdsafsd", 24.135);
+        StdOut.printf("| %10s , %10.3f |\n", "fdd", 424.135);
+        test1.makeTable();
     }
 }
 
